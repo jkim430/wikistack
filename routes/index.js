@@ -10,4 +10,8 @@ router.get('/about_us', function(req, res, next) {
 	res.render('about_us', {});
 });
 
+// router.get('/add_page',function(req,res,next){
+// 	res.render('add_page',{title: 'ADD A PAGE'})
+// })
+
 module.exports = router;
