@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <h1 class = "page-header">{{title}}</h1>
+    <form action="/add/submit" method="POST">
+      <label for="name_field">PAGE TITLE</label>
+      <br>
+      <input name="title" type="text" class = "textField form-control" value = '{{pages.title}}'/>
+      <br><br>
+      <label for="text_field" >PAGE CONTENT</label>
+      <br>
+      <textarea name="content" rows="20" class = "form-control">{{pages.content}}</textarea>
+      <br><br>
+      <label for="name_field">TAGS (separate tags with a space)</label>
+      <br>
+      <input name="tags" type="text" class = "textField form-control" value = '{{pages.tags.join(' ')}}'/>
+      <br>
+      <input type="submit" class="btn btn-primary btn-sm" value="SUBMIT" style="width: 75px;">
+    </form>
+
+  {% endblock %}
