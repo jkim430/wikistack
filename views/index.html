@@ -2,8 +2,13 @@
 
 {% block content %}
     <h1 class = "page-header">{{title}}</h1>
-    <ul>
-    {% for page in pages %}
-    <li>{{page}}</li>
-    {% endfor %}
+    {% if pages.length > 0 %}
+	  <ul>
+	    {% for doc in pages %}
+	      <li>{{doc|page_link}}</li>
+	    {% endfor %}
+	  </ul>
+	{% else %}
+	  There are no pages. Why don't you <a href='/add'>add one</a>?
+	{% endif %}
 {% endblock %}
