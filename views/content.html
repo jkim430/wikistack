@@ -4,12 +4,22 @@
     <h1 class = "page-header">{{pages|page_link}}</h1>
 	   <p>{{pages.content|marked}}</p>
 	   <b>Tags</b>
-	   <p>{{pages.tags.join(' ')}}</p>
+     {%for tag in pages.tags%}
+    <a href='/tags/{{tag}}'>{{tag}}</a>
+     {%endfor%}
+     <form action="/edit" method="POST">
+      <input type="submit" class="btn btn-primary btn-sm" value="EDIT" style="width: 75px;">
+     </form>
+	   <!-- <p>
+      {{pages.tags.join(' ')}}
+     </p> -->
 	<form action="/add/tag" method="POST">
-      <label for="name_field">TAGS (separate tags with a space)</label>
+      <label for="name_field">ADD TAGS (separate tags with a space)</label>
       <br>
       <input name="tags" type="text" class = "textField form-control"/>
       <br>
       <input type="submit" class="btn btn-primary btn-sm" value="SUBMIT" style="width: 75px;">
     </form>
+  
+
 {% endblock %}
